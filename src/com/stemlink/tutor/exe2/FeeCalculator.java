@@ -1,4 +1,4 @@
-package com.stemlink.tutor;
+package com.stemlink.tutor.exe2;
 
 public class FeeCalculator {
 
@@ -10,19 +10,15 @@ public class FeeCalculator {
     private FeeCalculator() {}
 
     public static double calculateBaseFee(String bookingType, int hours) {
+        if(bookingType.equals("standard")) {
+            return STANDARD_RATE * hours;
+        } else if (bookingType.equals("urgent")) {
+            return URGENT_RATE * hours;
+        } else if (bookingType.equals("group")) {
+            return GROUP_RATE * hours;
 
-        switch (bookingType.toUpperCase()) {
-            case "STANDARD":
-                return STANDARD_RATE * hours;
-
-            case "URGENT":
-                return URGENT_RATE * hours;
-
-            case "GROUP":
-                return GROUP_RATE * hours;
-
-            default:
-                throw new IllegalArgumentException("Invalid booking type");
+        } else {
+            throw new IllegalArgumentException("Invalid booking type");
         }
     }
 

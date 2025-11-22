@@ -1,4 +1,4 @@
-package com.stemlink.tutor;
+package com.stemlink.tutor.exe3;
 
 import com.stemlink.tutor.exe2.CustomDateTimeFormatter;
 
@@ -54,9 +54,9 @@ public final class Booking {
         if (obj == this) {
             return true;
         }
-       
+
         if (!(obj instanceof Booking)) {
-            return false; // not the same type
+            return false;
         }
         Booking other = (Booking) obj;
 

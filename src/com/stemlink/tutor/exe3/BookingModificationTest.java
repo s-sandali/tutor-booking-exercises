@@ -1,22 +1,14 @@
-package com.stemlink.tutor;
+package com.stemlink.tutor.exe3;
 
 import java.time.LocalDateTime;
 
 public class BookingModificationTest {
     public static void main(String[] args) {
 
-        Booking b = new Booking(
-                "STU-002",
-                "MEN-002",
-                "Spring Boot",
-                LocalDateTime.now().plusDays(1),
-                2
-        );
+        Booking b = new Booking("STU-002","MEN-002","Spring Boot",
+                LocalDateTime.now().plusDays(1),2 );
 
-        // ❌ This will NOT compile (uncomment to see the error)
-        // b.bookingId = "TEST-000";  // Cannot assign a value to final variable
 
-        // ✅ Correct way → Create a new booking
         Booking newBooking = new Booking(
                 b.getStudentId(),
                 b.getMentorId(),

@@ -1,4 +1,4 @@
-package com.stemlink.tutor;
+package com.stemlink.tutor.exe2;
 
 import java.time.LocalDateTime;
 
@@ -10,6 +10,7 @@ public class BookingValidator {
     public static boolean isValidBookingTime(LocalDateTime bookingTime) {
         return bookingTime.isAfter(LocalDateTime.now());
     }
+
 
     // Duration  between 1–4 hours
     public static boolean isValidDuration(int hours) {

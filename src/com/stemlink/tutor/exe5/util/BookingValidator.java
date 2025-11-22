@@ -1,4 +1,6 @@
-package com.stemlink.tutor.exe2;
+package com.stemlink.tutor.exe5.util;
+
+import com.stemlink.tutor.exe5.constants.PlatformConstants;
 
 import java.time.LocalDateTime;
 
@@ -11,13 +13,16 @@ public class BookingValidator {
         return bookingTime.isAfter(LocalDateTime.now());
     }
 
-    // Duration  between 1–4 hours
+    // Booking must not be more than MAX_ADVANCE_BOOKING_DAYS days in the future
+    public static boolean isWithinAdvanceBookingLimit(LocalDateTime bookingTime) {
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime maxAllowed = now.plusDays(PlatformConstants.MAX_ADVANCE_BOOKING_DAYS);
+        return !bookingTime.isAfter(maxAllowed);
+    }
+
+    // Duration between 1–4 hours
     public static boolean isValidDuration(int hours) {
-        if (hours >= 1 && hours <= 4) {
-            return true;
-        } else {
-            return false;
-        }
+        return hours >= PlatformConstants.MIN_BOOKING_HOURS && hours <= PlatformConstants.MAX_BOOKING_HOURS;
     }
 
 
